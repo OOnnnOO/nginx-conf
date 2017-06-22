@@ -1,4 +1,4 @@
 location ^~ /.well-known/acme-challenge/ {
-  alias /var/www/challenges/;
+  root      /var/www/challenges/;
   try_files $uri =404;
 }
