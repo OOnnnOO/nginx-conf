@@ -1,5 +1,5 @@
 location / {
-  proxy_pass               http://172.17.0.4:12001;
+  proxy_pass               httpbin:12001;
   proxy_set_header         Host             $host;
   proxy_set_header         X-Real_IP        $remote_addr;
   proxy_set_header         X-Forwarded-For  $proxy_add_x_forwarded_for;
