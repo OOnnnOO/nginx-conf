@@ -1,0 +1,5 @@
+rewrite ^(.*)$ /index.html;
+location / {
+  root /var/www/error80;
+  index index.html;
+}
