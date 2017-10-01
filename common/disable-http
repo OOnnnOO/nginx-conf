@@ -1,5 +1,4 @@
-rewrite ^(.*)$ /index.html;
 location / {
   root /var/www/error80;
-  index index.html;
+  try_files $uri $uri/ /index.html;
 }
