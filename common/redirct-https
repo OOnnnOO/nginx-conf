@@ -1,0 +1,15 @@
+# 将不带 Mozilla/5.0 user-agent 的请求重定向至https访问
+# 设置标志位，因Nginx配置不支持 与、或 逻辑运算
+set $flag 0;
+
+if ($scheme = http){
+ set $flag "${flag}1";
+}
+
+if ($http_user_agent ~* "Mozilla/5.0"){
+ set $flag "${flag}1";
+}
+
+if ($flag = 011) {
+  rewrite ^ https://$server_name$request_uri? permanent;
+}
