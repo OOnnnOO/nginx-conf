@@ -6,4 +6,9 @@ location ~ \.php$ {
   # add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
   add_header  X-Frame-Options  SAMEORIGIN;
   add_header  X-Content-Type-Options  nosniff;
+  # 配置允许cors跨域
+  if ($http_origin ~ '^https?://(localhost:3000)||^https?://(upload.oonnnoo.com)') {
+    add_header 'Access-Control-Allow-Origin' "$http_origin";
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+  }
 }
